@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="53" column="59" lean-forward="true" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+            <state relative-caret-position="503">
+              <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#904#1605#0" expanded="true" />
@@ -153,7 +153,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555864863242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555866239548" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -251,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="53" column="59" lean-forward="true" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+        <state relative-caret-position="503">
+          <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#904#1605#0" expanded="true" />

@@ -37,7 +37,7 @@ public class GrpId {
 
         PCollection<KV<String, Iterable<String>>> collection_id = stringToKv.apply(GroupByKey.<String, String>create());
 
-        PCollection<String> sumUpValuesByKey =
+        PCollection<String> list_id =
                 collection_id.apply(
                         "GroupByItem_Id",
                         ParDo.of(
@@ -47,21 +47,22 @@ public class GrpId {
                                     public void processElement(ProcessContext context) {
 
                                         String itm_id = context.element().getKey();
-
+                                        String str = "{";
                                         Iterable<String> cust_id_list = context.element().getValue();
-                                        List<String> l = null;
+                                        //List<String> l = cust_id_list;
                                         for (String cust_id : cust_id_list) {
-                                            l.add(cust_id);
+                                            //l.add(cust_id);
+                                            str += cust_id;
                                         }
-                                        String cust_id =l.stream()
-                                                .map(Object::toString)
-                                                .collect(Collectors.joining(","));
+                                        //String cust_id1 =cust_id_list
+                                        String str2 = str.substring(0,str.length()-1);
 
-                                        context.output(itm_id + "," +cust_id );
+
+                                        context.output(itm_id + "," +str2 );
                                     }
                                 }));
 
-        sumUpValuesByKey.apply(TextIO.write().to("gs://sumit-test-bucket-2508/output/collect_id").withSuffix(".txt").withoutSharding());
+        list_id.apply(TextIO.write().to("gs://sumit-test-bucket-2508/output/collect_id").withSuffix(".txt").withoutSharding());
 
         p.run();
     }
