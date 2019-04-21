@@ -49,8 +49,10 @@ public class GrpId {
                                         for (String cust_id : cust_id_list) {
                                             collect_id+=cust_id + ",";
                                         }
-                                        
-                                        context.output(itm_id + "," + collect_id.replace((char) (collect_id.length()-1), '}'));
+                                        char[] str2 = collect_id.toCharArray();
+                                        str2[str2.length-1]='}';
+                                        String collect_id_formated = str2.toString();
+                                        context.output(itm_id + "," +collect_id_formated );
                                     }
                                 }));
 
