@@ -87,8 +87,8 @@ public class MaxRev {
 
         String out_path = "gs://sumit-test-bucket-2508/output/tbl";
 
-        PCollection<String> order_lines = p.apply("readOrder", TextIO.read().from("gs://sumit-test-bucket-2508/output/order.csv"));
-        PCollection<String> prod_lines = p.apply("readProduct", TextIO.read().from("gs://sumit-test-bucket-2508/output/product.csv"));
+        PCollection<String> order_lines = p.apply("readOrder", TextIO.read().from("gs://sumit-test-bucket-2508/input/order.csv"));
+        PCollection<String> prod_lines = p.apply("readProduct", TextIO.read().from("gs://sumit-test-bucket-2508/input/product.csv"));
 
         PCollection<Row> order_row = order_lines.apply("order_str_to_row", ParDo.of(new MaxRev.OrderStringToRow())).setRowSchema(ORDER);
         PCollection<Row> product_row = prod_lines.apply("prod_str_to_row", ParDo.of(new MaxRev.ProductStringToRow())).setRowSchema(PRODUCT);
@@ -98,7 +98,7 @@ public class MaxRev {
                 .and(new TupleTag<>("prod_tbl"), product_row);
 
         PCollection<Row> new_rw = my_tpl.apply("transform_sql", SqlTransform.query(
-                "SELECT * FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id == prod_tbl.prod_id"));
+                "SELECT * FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id = prod_tbl.prod_id"));
 
         PCollection<String> z = new_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
 
