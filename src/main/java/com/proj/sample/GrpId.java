@@ -51,7 +51,7 @@ public class GrpId {
                                         }
                                         //collect_id = collect_id.replace(collect_id.substring(collect_id.length()-1), "}");
 
-                                        context.output(itm_id + "," + collect_id);
+                                        context.output(itm_id + "," + collect_id.replace(collect_id.substring(collect_id.length()-1), "}");
                                     }
                                 }));
 
