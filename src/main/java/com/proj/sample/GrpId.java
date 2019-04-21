@@ -15,11 +15,11 @@ public class GrpId {
         PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().create();
         Pipeline p = Pipeline.create(options);
 
-        PCollection<String> lines = p.apply("readRow", TextIO.read().from("gs://sumit-test-bucket-2508/input/order.csv"));
+        PCollection<String> lines = p.apply("readInput", TextIO.read().from("gs://sumit-test-bucket-2508/input/order.csv"));
 
         PCollection<KV<String, String>> stringToKv =
                 lines.apply(
-                        "ParseAndConvertToKV",
+                        "StringToKV",
                         MapElements.via(
                                 new SimpleFunction<String, KV<String, String>>() {
 
@@ -37,7 +37,7 @@ public class GrpId {
 
         PCollection<String> sumUpValuesByKey =
                 collection_id.apply(
-                        "grp_by_itm",
+                        "GroupByItem_Id",
                         ParDo.of(
                                 new DoFn<KV<String, Iterable<String>>, String>() {
 
