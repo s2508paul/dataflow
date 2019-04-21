@@ -97,10 +97,13 @@ public class MaxRev {
         PCollectionTuple my_tpl = PCollectionTuple.of(new TupleTag<>("order_tbl"),order_row )
                 .and(new TupleTag<>("prod_tbl"), product_row);
 
-        PCollection<Row> new_rw = my_tpl.apply("transform_sql", SqlTransform.query(
-                "SELECT * FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id = prod_tbl.prod_id"));
+        PCollection<Row> join_rw = my_tpl.apply("transform_sql", SqlTransform.query(
+                "SELECT order_tbl.cust_id as id,(order_tbl.qty * prod_tbl.price) as rev FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id = prod_tbl.prod_id"));
 
-        PCollection<String> z = new_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
+        PCollection<Row> grp_rw = join_rw.apply("transform_sql", SqlTransform.query(
+                "SELECT id,Sum(rev) as tol_rev FROM PCOLLECTION group by id order by tol_rev dec"));
+
+        PCollection<String> z = grp_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
 
         z.apply("write_to_gcs", TextIO.write().to("gs://sumit-test-bucket-2508/output/jn").withSuffix(".txt").withoutSharding());
         p.run();
