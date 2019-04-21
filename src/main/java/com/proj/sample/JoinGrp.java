@@ -68,7 +68,7 @@ public class JoinGrp {
 	PCollectionTuple my_tpl = PCollectionTuple.of(new TupleTag<>("tbl"), rw);
 
         PCollection<Row> new_rw = my_tpl.apply("transform_sql", SqlTransform.query(
-                "SELECT id,count(*) FROM tbl group by id"));
+                "SELECT id,COUNT(*) FROM tbl group by id"));
 
         PCollection<String> z = new_rw.apply("transform_to_string", ParDo.of(new RowToString()));
 

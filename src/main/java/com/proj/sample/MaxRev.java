@@ -98,12 +98,12 @@ public class MaxRev {
                 .and(new TupleTag<>("prod_tbl"), product_row);
 
         PCollection<Row> join_rw = my_tpl.apply("transform_sql", SqlTransform.query(
-                "SELECT order_tbl.cust_id as id,(order_tbl.qty * prod_tbl.price) as rev FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id = prod_tbl.prod_id"));
+                "SELECT order_tbl.cust_id as id,SUM(order_tbl.qty * prod_tbl.price) as rev FROM order_tbl INNER JOIN prod_tbl ON order_tbl.prod_id = prod_tbl.prod_id group by order_tbl.cust_id order by rev desc LIMIT 100"));
 
-        PCollection<Row> grp_rw = join_rw.apply("transform_sql", SqlTransform.query(
-                "SELECT id,Sum(rev) as tol_rev FROM PCOLLECTION group by id order by tol_rev dec"));
+        //PCollection<Row> grp_rw = join_rw.apply("transform_sql", SqlTransform.query(
+          //      "SELECT id,SUM(rev) as tol_rev FROM PCOLLECTION group by id order by tol_rev dec"));
 
-        PCollection<String> z = grp_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
+        PCollection<String> z = join_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
 
         z.apply("write_to_gcs", TextIO.write().to("gs://sumit-test-bucket-2508/output/jn").withSuffix(".txt").withoutSharding());
         p.run();
