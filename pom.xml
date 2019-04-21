@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
+	
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -19,8 +20,9 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-        </plugins>
+	</plugins>
 
+	<!--
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -32,36 +34,61 @@
                     </configuration>
                 </plugin>
             </plugins>
-        </pluginManagement>
+	</pluginManagement>
+	-->
     </build>
     <dependencies>
+	    <!--
         <dependency>
             <groupId>com.google.cloud.dataflow</groupId>
             <artifactId>google-cloud-dataflow-java-sdk-all</artifactId>
             <version>[2.0.0-beta2,3.0.0)</version>
         </dependency>
-
+	-->
         <!-- slf4j API frontend binding with JUL backend -->
-        <dependency>
+	<!--
+	<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.14</version>
         </dependency>
-
+	-->
         <dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-sdks-java-extensions-sql</artifactId>
-            <version>2.10.0</version>
+            <version>2.9.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-core -->
         <!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-core -->
-        <dependency>
+	
+	<dependency>
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-sdks-java-core</artifactId>
-            <version>2.10.0</version>
-        </dependency>
+            <version>2.9.0</version>
+	    </dependency>
+    	<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-runners-google-cloud-dataflow-java -->
+	<dependency>
+    	<groupId>org.apache.beam</groupId>
+    	<artifactId>beam-runners-google-cloud-dataflow-java</artifactId>
+    	<version>2.9.0</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-io-google-cloud-platform -->
+<dependency>
+    <groupId>org.apache.beam</groupId>
+    <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+    <version>2.9.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.beam/beam-sdks-java-extensions-google-cloud-platform-core -->
+<dependency>
+    <groupId>org.apache.beam</groupId>
+    <artifactId>beam-sdks-java-extensions-google-cloud-platform-core</artifactId>
+    <version>2.9.0</version>
+</dependency>
 
 
+	
 
     </dependencies>
 

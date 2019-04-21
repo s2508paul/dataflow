@@ -13,7 +13,7 @@ import org.apache.beam.sdk.schemas.Schema;
 import java.util.List;
 import org.apache.beam.sdk.extensions.sql.SqlTransform;
 import java.util.stream.Collectors;
-
+import org.apache.beam.sdk.values.PCollectionTuple;
 
 
 public class JoinGrp {
@@ -36,7 +36,7 @@ public class JoinGrp {
 
          /*List l = c.element().getValues();
             System.out.println("size="+l.size());
-            */
+           */ 
             c.output(line);
         }
 
@@ -59,17 +59,19 @@ public class JoinGrp {
         PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().create();
         Pipeline p = Pipeline.create(options);
 
-        String input = "/Users/tkmacgf/Desktop/to_tar/dir1/a2.txt";
+        String input = "gs://sumit-test-bucket-2508/input/a2.txt";
         //String outputPrefix = "/Users/tkmacgf/Desktop/to_tar/output/hello";
         PCollection<String> lines = p.apply("readRow", TextIO.read().from(input));
         PCollection<Row> rw = lines.apply("transform_to_row", ParDo.of(new StringToRow())).setRowSchema(SCHEMA);
 
-        PCollection<Row> new_rw = rw.apply("transform_sql", SqlTransform.query(
-                "SELECT id,name FROM PCOLLECTION where id=2 or id=3"));
+	PCollectionTuple my_tpl = PCollectionTuple.of(new TupleTag<>("tbl"), rw);
+
+        PCollection<Row> new_rw = my_tpl.apply("transform_sql", SqlTransform.query(
+                "SELECT id,count(*) FROM tbl group by id"));
 
         PCollection<String> z = new_rw.apply("transform_to_string", ParDo.of(new RowToString()));
 
-        z.apply("write_to_gcs", TextIO.write().to("/Users/tkmacgf/Desktop/to_tar/hello").withSuffix(".txt").withoutSharding());
+        z.apply("write_to_gcs", TextIO.write().to("gs://sumit-test-bucket-2508/output/tbl").withSuffix(".txt").withoutSharding());
         p.run();
 
 
