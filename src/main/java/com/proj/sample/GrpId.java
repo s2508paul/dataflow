@@ -52,11 +52,11 @@ public class GrpId {
                                         //List<String> l = cust_id_list;
                                         for (String cust_id : cust_id_list) {
                                             //l.add(cust_id);
-                                            str += cust_id;
+                                            str += cust_id + ",";
                                         }
                                         //String cust_id1 =cust_id_list
                                         String str2 = str.substring(0,str.length()-1);
-
+                                        str2+="}";
 
                                         context.output(itm_id + "," +str2 );
                                     }
