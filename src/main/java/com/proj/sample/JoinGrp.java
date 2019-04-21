@@ -14,6 +14,7 @@ import java.util.List;
 import org.apache.beam.sdk.extensions.sql.SqlTransform;
 import java.util.stream.Collectors;
 import org.apache.beam.sdk.values.PCollectionTuple;
+import org.apache.beam.sdk.values.*;
 
 
 public class JoinGrp {
