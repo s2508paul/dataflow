@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46e8419b-b20c-4a76-9fce-ab38dda9b281" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java" afterDir="false" />
-    </list>
+    <list default="true" id="46e8419b-b20c-4a76-9fce-ab38dda9b281" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +151,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555866601177" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555873758493" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
