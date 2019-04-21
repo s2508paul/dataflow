@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="53" column="135" lean-forward="true" selection-start-line="53" selection-start-column="135" selection-end-line="53" selection-end-column="135" />
+            <state relative-caret-position="499">
+              <caret line="53" column="110" lean-forward="true" selection-start-line="53" selection-start-column="110" selection-end-line="53" selection-end-column="110" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#904#1605#0" expanded="true" />
@@ -153,7 +153,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555862439740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555862923550" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -251,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="53" column="135" lean-forward="true" selection-start-line="53" selection-start-column="135" selection-end-line="53" selection-end-column="135" />
+        <state relative-caret-position="499">
+          <caret line="53" column="110" lean-forward="true" selection-start-line="53" selection-start-column="110" selection-end-line="53" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#904#1605#0" expanded="true" />

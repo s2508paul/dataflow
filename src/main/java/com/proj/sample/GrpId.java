@@ -49,9 +49,8 @@ public class GrpId {
                                         for (String cust_id : cust_id_list) {
                                             collect_id+=cust_id + ",";
                                         }
-                                        //collect_id = collect_id.replace(collect_id.substring(collect_id.length()-1), "}");
-
-                                        context.output(itm_id + "," + collect_id.replace(collect_id.substring(collect_id.length()-1), "}"));
+                                        
+                                        context.output(itm_id + "," + collect_id.replace((char) (collect_id.length()-1), '}'));
                                     }
                                 }));
 
