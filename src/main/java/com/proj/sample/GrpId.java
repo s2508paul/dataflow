@@ -47,9 +47,10 @@ public class GrpId {
                                         String itm_id = context.element().getKey();
                                         Iterable<String> cust_id_list = context.element().getValue();
                                         for (String cust_id : cust_id_list) {
-
+                                            collect_id+=cust_id + ",";
                                         }
-                                        collect_id+="}";
+                                        collect_id = collect_id.replace(collect_id.substring(collect_id.length()-1), "}");
+
                                         context.output(itm_id + "," + collect_id);
                                     }
                                 }));
