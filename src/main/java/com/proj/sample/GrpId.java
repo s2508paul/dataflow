@@ -7,6 +7,8 @@ import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.*;
 import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.values.PCollection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GrpId {
 
@@ -43,16 +45,19 @@ public class GrpId {
 
                                     @ProcessElement
                                     public void processElement(ProcessContext context) {
-                                        String collect_id = "{";
+
                                         String itm_id = context.element().getKey();
+
                                         Iterable<String> cust_id_list = context.element().getValue();
+                                        List<String> l = null;
                                         for (String cust_id : cust_id_list) {
-                                            collect_id+=cust_id + ",";
+                                            l.add(cust_id);
                                         }
-                                        char[] str2 = collect_id.toCharArray();
-                                        str2[str2.length-1]='}';
-                                        String collect_id_formated = str2.toString();
-                                        context.output(itm_id + "," +collect_id_formated );
+                                        String cust_id =l.stream()
+                                                .map(Object::toString)
+                                                .collect(Collectors.joining(","));
+
+                                        context.output(itm_id + "," +cust_id );
                                     }
                                 }));
 
