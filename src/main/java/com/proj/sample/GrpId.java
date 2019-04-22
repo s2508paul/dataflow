@@ -17,7 +17,7 @@ public class GrpId {
         PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().create();
         Pipeline p = Pipeline.create(options);
 
-        PCollection<String> lines = p.apply("readInput", TextIO.read().from("gs://sumit-test-bucket-2508/input/order.csv"));
+        PCollection<String> lines = p.apply("readInput", TextIO.read().from("gs://sumit-test-bucket-2508/input/cust.csv"));
 
         PCollection<KV<String, String>> stringToKv =
                 lines.apply(
@@ -29,7 +29,7 @@ public class GrpId {
                                     public KV<String, String> apply(String str) {
                                         String[] split = str.split(",");
 
-                                        String key = split[2];
+                                        String key = split[3];
                                         String value = split[1];
                                         return KV.of(key, value);
                                     }
