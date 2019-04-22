@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46e8419b-b20c-4a76-9fce-ab38dda9b281" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java" afterDir="false" />
-    </list>
+    <list default="true" id="46e8419b-b20c-4a76-9fce-ab38dda9b281" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="115" selection-start-line="19" selection-start-column="115" selection-end-line="19" selection-end-column="115" />
+            <state relative-caret-position="299">
+              <caret line="31" column="58" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#904#1605#0" expanded="true" />
@@ -153,7 +151,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555916924228" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555920141359" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -251,8 +249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/proj/sample/GrpId.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="115" selection-start-line="19" selection-start-column="115" selection-end-line="19" selection-end-column="115" />
+        <state relative-caret-position="299">
+          <caret line="31" column="58" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#904#1605#0" expanded="true" />

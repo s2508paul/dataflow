@@ -58,7 +58,7 @@ public class GrpId {
                                         String str2 = str.substring(0,str.length()-1);
                                         str2+="}";
 
-                                        context.output(itm_id + "," +str2 );
+                                        context.output(itm_id + ":" +str2 );
                                     }
                                 }));
 
