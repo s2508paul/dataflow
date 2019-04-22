@@ -105,7 +105,7 @@ public class MaxRev {
 
         PCollection<String> z = join_rw.apply("transform_to_string", ParDo.of(new MaxRev.RowToString()));
 
-        z.apply("write_to_gcs", TextIO.write().to("gs://sumit-test-bucket-2508/output/jn").withSuffix(".txt").withoutSharding());
+        z.apply("write_to_gcs", TextIO.write().to("gs://sumit-test-bucket-2508/output/revenue").withSuffix(".txt").withoutSharding());
         p.run();
 
 
